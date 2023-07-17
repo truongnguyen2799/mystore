@@ -1,9 +1,6 @@
-<div class="product-container">
-    <div class="product-index">
-        <ul>
-            <li *ngFor="let product of productList">
-                {{product.name}}
-            </li>
-        </ul>
+<div class="product-container container">
+    <div class="row">
+        <app-product-item class="col-sm-5" *ngFor="let product of productList" [product]="product"
+            (addProductToCart)="addProductToCart(product, $event)"></app-product-item>
     </div>
 </div>

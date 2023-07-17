@@ -1,1 +1,15 @@
-<p>product-item works!</p>
+<div class="product-container">
+    <a>
+        <img class="product-image" src="{{ product.url }}" />
+    </a>
+    <p>{{ product.name }}</p>
+    <p>${{ product.price }}</p>
+    <select class="select-input" name="number" type="text" [(ngModel)]="quantity">
+        <option *ngFor="let q of listQuantity" [value]="q" [selected]="q == quantity">
+            {{ q }}
+        </option>
+    </select>
+    <button class="btn" type="submit" (click)="addProductToCart.emit(quantity)">
+        ADD TO CART
+    </button>
+</div>
