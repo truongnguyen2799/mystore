@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../models/Item';
 import { ProductService } from './product.service';
 import { Cart } from '../models/Cart';
 import { Product } from '../models/Product';
@@ -45,11 +44,11 @@ export class CartService {
     }
   }
 
-  getTotlPrice(): number {
+  getTotalPrice(): number {
     var total = 0;
     this.listCart.forEach((item) => {
-      total += item.price;
+      total += item.price * item.quantity;
     });
-    return total;
+    return Math.round(total * 100) / 100 ;;
   }
 }

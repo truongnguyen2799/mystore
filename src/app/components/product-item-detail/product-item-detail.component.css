@@ -38,6 +38,12 @@ button {
   padding: 5px 15px;
 }
 
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .input-qty{
   margin-bottom: 20px;
 }

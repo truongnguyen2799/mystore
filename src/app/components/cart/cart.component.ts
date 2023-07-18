@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
-import { Item } from 'src/app/models/Item';
-import { Product } from 'src/app/models/Product';
 import { Cart } from 'src/app/models/Cart';
 
 @Component({
@@ -17,7 +16,8 @@ export class CartComponent implements OnInit {
   listCart: Cart[];
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {
     this.fullName = '';
     this.address = '';
@@ -29,17 +29,6 @@ export class CartComponent implements OnInit {
     this.listCart = this.cartService.getListItem();
   }
 
-  submitForm(buttonType: string): void {
-    console.log(
-      '🚀 ~ file: cart.component.ts:33 ~ CartComponent ~ submitForm ~ buttonType:',
-      buttonType
-    );
-    if (buttonType === 'add') {
-    } else {
-      this.btnDeleteClick(parseInt(buttonType));
-    }
-  }
-
   btnDeleteClick(productId: number) {
     if (confirm('Do you want to delete this product?')) {
       this.cartService.deleteFromCart(productId);
@@ -48,7 +37,7 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice(): number {
-    return this.cartService.getTotlPrice();
+    return this.cartService.getTotalPrice();
   }
 
   changeAmount(productId: number, quantity: number) {
@@ -61,5 +50,9 @@ export class CartComponent implements OnInit {
 
   refreshCart(): void {
     this.listCart = this.cartService.getListItem();
+  }
+
+  submit(): void {
+    this.router.navigate(['/confirmation']);
   }
 }

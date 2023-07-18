@@ -7,13 +7,13 @@
         <form (ngSubmit)="submitForm">
             <div class="buttons_added">
                 <input class="input-qty" max="10" min="0" name="quatityInCard" type="number" value="{{quatityInCard}}"
-                    [(ngModel)]="quatityInCard">
+                    [(ngModel)]="quatityInCard" (change)="changeQuantity()">
             </div>
             <div>
-                <button type="add" (click)="submitForm()">Add to cart</button>
+                <button [disabled]="isButtonDisabled" type="add" (click)="submitForm()">Add to cart</button>
             </div>
 
         </form>
-        <a routerLink=" /">Back to list</a>
+        <a routerLink="/">Back to list</a>
             </div>
     </div>

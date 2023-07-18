@@ -13,6 +13,7 @@ export class ProductItemDetailComponent implements OnInit {
   id: number;
   product: Product;
   quatityInCard: number;
+  isButtonDisabled: boolean = true;
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
@@ -32,6 +33,13 @@ export class ProductItemDetailComponent implements OnInit {
         (search) => search.id == this.id
       ) as unknown as Product;
     });
+  }
+
+  changeQuantity(): void {
+    if (this.quatityInCard > 0) {
+      console.log("vaoo12312312321321")
+      this.isButtonDisabled = false;
+    }
   }
 
   submitForm(): void {
