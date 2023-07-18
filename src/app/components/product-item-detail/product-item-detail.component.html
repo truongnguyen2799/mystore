@@ -1,3 +1,19 @@
-<div class=".detail-container">
+<div class="detail-container">
+    <img class="img" src="{{ product.url }}" />
+    <div class="detail-item">
+        <h2>{{ product.name }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <p>Description: {{ product.description }}</p>
+        <form (ngSubmit)="submitForm">
+            <div class="buttons_added">
+                <input class="input-qty" max="10" min="0" name="quatityInCard" type="number" value="{{quatityInCard}}"
+                    [(ngModel)]="quatityInCard">
+            </div>
+            <div>
+                <button type="add" (click)="submitForm()">Add to cart</button>
+            </div>
 
-</div>
+        </form>
+        <a routerLink=" /">Back to list</a>
+            </div>
+    </div>

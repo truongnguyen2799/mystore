@@ -1,1 +1,26 @@
-<p>cart works!</p>
+<div *ngIf="this.listCart.length != 0">
+    <div class="cart-container">
+        <div class="cart-item-details">
+            <form (ngSubmit)="submitForm">
+                <div class="cart-item" *ngFor=" let cart of listCart">
+                    <img src="{{cart.url}}">
+                    <div class="cart-panel">
+                        <p>{{ cart.productName }}</p>
+                        <p>${{ cart.price }}</p>
+                        <p>Amount: <input style="text-align: center" min="1" name="quatityInCard" type="number" value="{{cart.quantity}}"
+                                [ngModel]="cart.quantity"
+                                (ngModelChange)="[changeAmount(cart.productId, cart.quantity), refreshCart(), getTotalPrice()]">
+                        </p>
+                        <button type="delete" (ngModelClick)="[btnDeleteClick(cart.productId),  refreshCart(), getTotalPrice()]">Delete</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <p style="text-align: center">Total: ${{ getTotalPrice() }}</p>
+</div>
+
+<p style="text-align: center; margin-top: 100px;" *ngIf="this.listCart.length == 0">
+    Cart is empty!
+</p>

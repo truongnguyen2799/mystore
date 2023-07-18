@@ -9,4 +9,10 @@
 .product-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-item{
+    flex-basis: calc(33.33% - 100px);
+    margin: 5px;
 }

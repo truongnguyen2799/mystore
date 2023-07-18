@@ -11,18 +11,21 @@ import { Product } from 'src/app/models/Product';
 export class ProductListComponent implements OnInit {
   productList: Product[];
 
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {
     this.productList = [];
   }
 
   ngOnInit(): void {
     this.productService.getListOfProducts().subscribe((products) => {
       this.productList = products as Product[];
-      console.log("🚀 ~ file: product-list.component.ts:21 ~ ProductListComponent ~ this.productService.getListOfProducts ~ products:", products)
     });
   }
 
   addProductToCart(product: Product, quantity: number): void {
     alert(`${quantity ? quantity : 1} of ${product.name} add to cart`);
+    this.cartService.addToCart(product, quantity);
   }
 }
