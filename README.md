@@ -1,27 +1,41 @@
-# Mystore
+# MyStore
+## MyStore Project Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+MyStore is Angular application that allows users to view a list of available products to purchase, add them to cart, and ultimately complete the checkout process.
 
-## Development server
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version  16.1.4.
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone the repository: `git clone https://github.com/truongnguyen2799/mystore`
+2. Navigate to the project directory: `cd mystore`
+3. Install the dependencies: `npm install`
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Start the development server: `ng serve`
+2. Open your browser and navigate to `http://localhost:4200`
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Browse and search for products
+- View product details, including name, price, description, and photo
+- Add products to the shopping cart
+- Remove products from the shopping cart
+- View the total cost of products in the shopping cart
+- Validate input forms during checkout
+- Receive feedback when the cart is modified
+- Complete the checkout process and view an order confirmation page
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular
+- TypeScript
+- HTML
+- CSS
+## Contributing
 
-## Running end-to-end tests
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.

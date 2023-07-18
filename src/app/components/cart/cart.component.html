@@ -9,7 +9,7 @@
                     <p>${{ cart.price }}</p>
                     <p>Amount: <input class="number-input" min="1" name="quatityInCard" type="number"
                             value="{{cart.quantity}}" [(ngModel)]="cart.quantity"
-                            (change)="[changeAmount(cart.productId, cart.quantity), refreshCart(), getTotalPrice()]">
+                            (ngModelChange)="[changeAmount(cart.productId, cart.quantity), refreshCart(), getTotalPrice()]">
                     </p>
                     <button class="btn" type="delete" name="delete"
                         (click)="[btnDeleteClick(cart.productId),  refreshCart(), getTotalPrice()]">Delete</button>
